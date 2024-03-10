@@ -41,3 +41,25 @@ class CRUDApp {
             this.dataList.appendChild(li);
         });
     }
+
+    editUserData(index) {
+        const newName = prompt('Digite o novo nome:');
+        const newEmail = prompt('Digite o novo email:');
+        if (newName && newEmail) {
+            this.userDataList[index].name = newName;
+            this.userDataList[index].email = newEmail;
+            this.render();
+        } else {
+            alert('Por favor, preencha todos os campos.');
+        }
+    }
+
+    deleteUserData(index) {
+        if (confirm('Tem certeza que deseja deletar este usuário?')) {
+            this.userDataList.splice(index, 1);
+            this.render();
+        }
+    }
+}
+
+const crudApp = new CRUDApp();
